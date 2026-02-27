@@ -123,7 +123,7 @@ public class Seguro {
 	 *         0 si el seguro todavía no está en vigor (no se ha alcanzado su fecha
 	 *         de inicio)
 	 */
-	public double precio() {
+	public double precio(Cliente cliente) {
 		double precio = 0;
 		LocalDate hoy = LocalDate.now();// LocalDate garantiza precisión con bisiestos
 		LocalDate limiteOferta = LocalDate.now().minusYears(1);
@@ -132,11 +132,11 @@ public class Seguro {
 			return precio;
 		}
 
-		if (this.cobertura.equals("TERCEROS")) {
+		if (Cobertura.TERCEROS.equals(this.cobertura)) {
 			precio = 400; // €
-		} else if (this.cobertura.equals("TODO_RIESGO")) {
+		} else if (Cobertura.TODO_RIESGO.equals(this.cobertura)) {
 			precio = 1000; // €
-		} else if (this.cobertura.equals("TERCEROS_LUNAS")) {
+		} else if (Cobertura.TERCEROS_LUNAS.equals(this.cobertura)) {
 			precio = 600; // €
 		}
 
@@ -157,7 +157,7 @@ public class Seguro {
 		precioBase = precio;
 
 		if (cliente != null && cliente.getMinusvalia() == true) {
-			precio = precioBase * 0.75;
+			precio = precioBase * 0.75; // Se aplica un descuento del 25%
 		} else {
 			precio = precioBase;
 		}
