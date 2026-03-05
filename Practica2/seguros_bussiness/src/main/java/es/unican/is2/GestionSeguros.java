@@ -1,6 +1,6 @@
 package es.unican.is2;
 
-import java.time.LocalDate;
+import java.util.List;
 
 import es.unican.is2.Cliente;
 import es.unican.is2.Seguro;
@@ -62,25 +62,66 @@ public class GestionSeguros implements IGestionClientes, IGestionSeguros, IInfoS
 
     @Override
     public Seguro bajaSeguro(String matricula, String dni) throws OperacionNoValida, DataAccessException {
-        return null;
+        Cliente c = clientesDAO.cliente(dni);
+        if (c == null) {
+            return null;
+        }
+                
+        List<Seguro> seguros = c.getSeguros();
+
+        if (seguros.isEmpty()) {
+            return null;
+        }
+        boolean perteneceSeguro = false;
+        Seguro s = null;
+        for (Seguro seguro : seguros) {
+            if (seguro.getMatricula().equals(matricula)) {
+                perteneceSeguro = true;
+                s = seguro;
+            }
+        }
+
+        if (!perteneceSeguro) {
+            throw new OperacionNoValida("No existe ningun seguro asociado a dicha matricula para el cliente");
+        }
+
+        segurosDAO.eliminaSeguro(s.getId());
+        return s;
     }
 
     @Override
     public Seguro anhadeConductorAdicional(String matricula, String conductor) throws DataAccessException {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'anhadeConductorAdicional'");
+        Seguro s = segurosDAO.seguroPorMatricula(matricula);
+
+        if (s == null) {
+            return null;
+        }
+        
+        s.setConductorAdicional(conductor);
+        segurosDAO.actualizaSeguro(s);
+        return s;
     }
 
     @Override
     public Cliente cliente(String dni) throws DataAccessException {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'cliente'");
+        Cliente c = clientesDAO.cliente(dni);
+
+        if (c == null) {
+            return null;
+        }
+
+        return c;
     }
 
     @Override
     public Seguro seguro(String matricula) throws DataAccessException {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'seguro'");
+        Seguro s = segurosDAO.seguroPorMatricula(matricula);
+
+        if (s == null) {
+            return null;
+        }
+
+        return s;
     }
 
 }
