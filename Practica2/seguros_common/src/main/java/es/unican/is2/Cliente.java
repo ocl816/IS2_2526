@@ -17,6 +17,12 @@ public class Cliente {
 
     private List<Seguro> seguros = new LinkedList<Seguro>();
     
+    public Cliente(String nombre, String dni, boolean minusvalia) {
+        this.nombre = nombre;
+        this.dni = dni;
+        this.minusvalia = minusvalia;
+    }
+
 	/**
      * Retorna los seguros del cliente 
      */
