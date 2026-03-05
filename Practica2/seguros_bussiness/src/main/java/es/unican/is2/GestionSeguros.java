@@ -1,39 +1,86 @@
 package es.unican.is2;
 
-public class GestionSeguros {
+import java.time.LocalDate;
+
+import es.unican.is2.Cliente;
+import es.unican.is2.Seguro;
+import es.unican.is2.IClientesDAO;
+import es.unican.is2.ISegurosDAO;
+
+
+public class GestionSeguros implements IGestionClientes, IGestionSeguros, IInfoSeguros {
+
+    IClientesDAO clientesDAO;
+    ISegurosDAO segurosDAO;
     
-    /* Comentadas ya que al no implementar la libreria daria error de compilacion */
-    // ClientesDAO clientesDao = new ClientesDAO()
-    // SegurosDAO segurosDao = new SegurosDAO()
-    
-
-    public void nuevoCliente() {
-
+    /**
+     * Crea el objeto GestionSeguros
+     * @param clientesDAO DAO de los clientes
+     * @param segurosDAO DAO de los seguros
+     */
+    public GestionSeguros(IClientesDAO clientesDAO, ISegurosDAO segurosDAO) {
+        this.clientesDAO = clientesDAO;
+        this.segurosDAO = segurosDAO;
     }
 
-    public void bajaCliente() {
-
+    @Override
+    public Cliente nuevoCliente(Cliente c) throws DataAccessException {
+        Cliente cNuevo = clientesDAO.cliente(c.getDni());
+        if (cNuevo != null) {
+            return null;
+        } 
+        clientesDAO.creaCliente(c);
+        return c;
     }
 
-    public void nuevoSeguro() {
+    @Override
+    public Cliente bajaCliente(String dni) throws OperacionNoValida,DataAccessException {
+        Cliente c = clientesDAO.cliente(dni);
+        if (c == null) {
+            return c;
+        }
 
+        if (!c.getSeguros().isEmpty()) {
+            throw new OperacionNoValida("El cliente tiene seguros asociados");    
+        }
+
+        clientesDAO.eliminaCliente(dni);
+        return c;
     }
 
-    public void bajaSeguro() {
+    @Override
+    public Seguro nuevoSeguro(Seguro s, String dni) throws OperacionNoValida, DataAccessException {
+        Seguro sNuevo = segurosDAO.seguro(s.getId());
 
+        if (sNuevo != null) {
+            throw new OperacionNoValida("El seguro ya existe");
+        }
+
+        segurosDAO.creaSeguro(s);
+        return s;
     }
 
-    public void consultaCliente() {
-
+    @Override
+    public Seguro bajaSeguro(String matricula, String dni) throws OperacionNoValida, DataAccessException {
+        return null;
     }
 
-    public void consultaSeguro() {
-
+    @Override
+    public Seguro anhadeConductorAdicional(String matricula, String conductor) throws DataAccessException {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'anhadeConductorAdicional'");
     }
 
-    public void anhadirConductorAdicional() {
-
+    @Override
+    public Cliente cliente(String dni) throws DataAccessException {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'cliente'");
     }
 
+    @Override
+    public Seguro seguro(String matricula) throws DataAccessException {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'seguro'");
+    }
 
 }
