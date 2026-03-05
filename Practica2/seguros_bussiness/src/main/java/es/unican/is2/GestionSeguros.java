@@ -2,12 +2,6 @@ package es.unican.is2;
 
 import java.util.List;
 
-import es.unican.is2.Cliente;
-import es.unican.is2.Seguro;
-import es.unican.is2.IClientesDAO;
-import es.unican.is2.ISegurosDAO;
-
-
 public class GestionSeguros implements IGestionClientes, IGestionSeguros, IInfoSeguros {
 
     IClientesDAO clientesDAO;

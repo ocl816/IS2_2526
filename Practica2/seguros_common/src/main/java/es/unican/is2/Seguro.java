@@ -19,7 +19,9 @@ public class Seguro {
 
 	private String conductorAdicional;
 
+	public Seguro() {
 	
+	}
 
 	public Seguro(long id, String matricula, int potencia, Cobertura cobertura, LocalDate fechaInicio,
 			String conductorAdicional) {
