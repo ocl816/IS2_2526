@@ -1,0 +1,10 @@
+/home/nighty/Workspaces/IS2_2526/Practica2/seguros_common/src/main/java/es/unican/is2/Cliente.java
+/home/nighty/Workspaces/IS2_2526/Practica2/seguros_common/src/main/java/es/unican/is2/Cobertura.java
+/home/nighty/Workspaces/IS2_2526/Practica2/seguros_common/src/main/java/es/unican/is2/DataAccessException.java
+/home/nighty/Workspaces/IS2_2526/Practica2/seguros_common/src/main/java/es/unican/is2/IClientesDAO.java
+/home/nighty/Workspaces/IS2_2526/Practica2/seguros_common/src/main/java/es/unican/is2/IGestionClientes.java
+/home/nighty/Workspaces/IS2_2526/Practica2/seguros_common/src/main/java/es/unican/is2/IGestionSeguros.java
+/home/nighty/Workspaces/IS2_2526/Practica2/seguros_common/src/main/java/es/unican/is2/IInfoSeguros.java
+/home/nighty/Workspaces/IS2_2526/Practica2/seguros_common/src/main/java/es/unican/is2/ISegurosDAO.java
+/home/nighty/Workspaces/IS2_2526/Practica2/seguros_common/src/main/java/es/unican/is2/OperacionNoValida.java
+/home/nighty/Workspaces/IS2_2526/Practica2/seguros_common/src/main/java/es/unican/is2/Seguro.java
