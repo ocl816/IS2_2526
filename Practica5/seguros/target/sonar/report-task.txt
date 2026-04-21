@@ -1,6 +1,0 @@
-projectKey=Seguros3
-serverUrl=http://localhost:9000
-serverVersion=26.3.0.120487
-dashboardUrl=http://localhost:9000/dashboard?id=Seguros3
-ceTaskId=c307fe9c-9810-4504-bc16-eb0f00403768
-ceTaskUrl=http://localhost:9000/api/ce/task?id=c307fe9c-9810-4504-bc16-eb0f00403768
