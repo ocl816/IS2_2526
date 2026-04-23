@@ -138,11 +138,21 @@ public class Seguro {
 	 *         de inicio)
 	 */
 	public double precio(Cliente cliente) {
+		// Valida que los campos del cliente necesarios no sean nulos
+		if (this.fechaInicio == null) {
+        	throw new IllegalArgumentException("La fecha de inicio no puede ser nula");
+    	}
+    	
+		if (this.cobertura == null) {
+        	throw new IllegalArgumentException("La cobertura no puede ser nula");
+    	}
+		
+		
 		double precio = 0;
 		LocalDate hoy = LocalDate.now();// LocalDate garantiza precisión con bisiestos
 		LocalDate limiteOferta = LocalDate.now().minusYears(1);
 
-		if (this.fechaInicio.compareTo(hoy) < 0) {
+		if (this.fechaInicio.isAfter(hoy)) {
 			return precio;
 		}
 
