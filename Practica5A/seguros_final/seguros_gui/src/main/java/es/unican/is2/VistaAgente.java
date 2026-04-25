@@ -100,7 +100,7 @@ public class VistaAgente extends JFrame {
 		btnBuscar = new JButton("Buscar");
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				rellenaDatosCliente(txtNombreCliente.getText());
+				rellenaDatosCliente(txtDniCliente.getText()); // AQUI HABIA ERROR Y SE HA CORREGIDO 
 			}
 		});
 		btnBuscar.setBounds(21, 122, 89, 23);
@@ -121,9 +121,8 @@ public class VistaAgente extends JFrame {
 				listModel.addElement(v.getMatricula() + " "+v.getCobertura());
 			}
 		} else {
-			txtNombreCliente.setText("Error en BBDD");
-			txtTotalCliente.setText("");
-			listModel.removeAllElements();
+			txtNombreCliente.setText("Cliente no encontrado"); // AQUI HABIA ERROR Y SE HA CORREGIDO 
+    		listModel.removeAllElements();
 		}
 		} catch (DataAccessException e) {
 			e.printStackTrace();

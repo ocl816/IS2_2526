@@ -34,7 +34,7 @@ public class H2ServerConnectionManager {
 		if (connection == null) { 
 			try {
 				Class.forName("org.h2.Driver"); //comprueba que el driver esta instalado
-				connection = DriverManager.getConnection("jdbc:h2:mem:test", "sa","");		
+				connection = DriverManager.getConnection("jdbc:h2:mem:test;DB_CLOSE_DELAY=-1", "sa","");		
 				cargaDatos();
 			} catch (SQLException | ClassNotFoundException e) {
 				throw new DataAccessException();

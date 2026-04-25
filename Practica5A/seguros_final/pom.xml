@@ -8,8 +8,8 @@
     <name>seguros</name> <!-- Este es el nombre por defecto en Sonar -->
 
     <properties>
-        <maven.compiler.target>21</maven.compiler.target>
-        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
 
         <!-- Propiedades para usar SonarQube en local-->
         <sonar.host.url>http://localhost:9000</sonar.host.url>
