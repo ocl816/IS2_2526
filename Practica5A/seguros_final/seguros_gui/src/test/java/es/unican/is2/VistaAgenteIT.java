@@ -35,7 +35,7 @@ public class VistaAgenteIT {
         window.textBox("txtDNICliente").enterText("11111111A");
         window.button("btnBuscar").click();
 
-        // SALIDA ESPERADA (Aserciones)
+        // Salida esperada
         window.textBox("txtNombreCliente").requireText("Juan");
         window.textBox("txtTotalCliente").requireText("1820.0"); 
         window.list().requireItemCount(3);
@@ -54,7 +54,7 @@ public class VistaAgenteIT {
     }
 
     @Test
-    public void testCP3_ClienteConUnSeguro() {
+    public void testClienteConUnSeguro() {
         // Entrada
         window.textBox("txtDNICliente").enterText("22222222A");
         window.button("btnBuscar").click();
@@ -65,7 +65,7 @@ public class VistaAgenteIT {
     }
 
     @Test
-    public void testCP4_ClienteNoExiste() {
+    public void testClienteNoExiste() {
         // Entrada
         window.textBox("txtDNICliente").enterText("99999999Z");
         window.button("btnBuscar").click();
@@ -77,7 +77,7 @@ public class VistaAgenteIT {
     }
 
     @Test
-    public void testCP5_SimulacionCaidaBBDD() {
+    public void testSimulacionCaidaBBDD() {
         // Limpia la ventana 
         window.cleanUp();
 
