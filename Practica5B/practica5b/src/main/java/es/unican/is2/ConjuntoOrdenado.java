@@ -20,11 +20,16 @@ public class ConjuntoOrdenado<E extends Comparable<E>> implements IConjuntoOrden
 		if (elemento==null)
 			throw new NullPointerException();
 		if (lista.size() != 0) {
-			while (indice < lista.size() && elemento.compareTo(lista.get(indice)) < 0) {
+			while (indice < lista.size() && elemento.compareTo(lista.get(indice)) > 0) { //Ta mal
 				indice++;
 			}
 		}
+		// Comrpueba que el elemento no exista en la lista (Anhadido al ajecutar los tests)
+		if (lista.contains(elemento)) {
+			return false;
+		}
 		lista.add(indice, elemento);
+		
 		return true;
 	}
 
