@@ -1,3 +1,5 @@
+package es.unican.is2;
+
 /* Clase que representa un transporte realizado por un conductor */
 public class Transporte {
 	
