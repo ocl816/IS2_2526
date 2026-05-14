@@ -1,10 +1,17 @@
 package es.unican.is2;
 
 import java.util.ArrayList;
+/*
+WMC = 18
+WMCn = 18/9 = 2
+CCOg = 9
+CCogn = 9/9 = 1
+
+*/
 
 /**
  * Clase que representa a un conductor, con sus datos personales
- * y los transportes que ha realizado. 
+ * y los transportes que ha realizado.
  */
 public class Conductor {
 
@@ -16,8 +23,8 @@ public class Conductor {
 	private String dire;
 
 	public Conductor(String dni, String nombre, String apellido1,
-			String apellido2, String direccion) {
-		if (dni == null || nombre == null || apellido1 == null || direccion == null) {
+			String apellido2, String direccion) { // CC +1 || CCog +0
+		if (dni == null || nombre == null || apellido1 == null || direccion == null) { // CC +1 +1 +1 +1 || CCog +1 +1
 			throw new IllegalArgumentException();
 		}
 		this.dni = dni;
@@ -27,35 +34,35 @@ public class Conductor {
 		this.dire = direccion;
 	}
 
-	public String dni() {
+	public String dni() { // CC +1 || CCog +0
 		return dni;
 	}
 
-	public String getDni() {
+	public String getDni() { // CC +1 || CCog +0
 		return dni;
 	}
 
-	public String getNombre() {
+	public String getNombre() { // CC +1 || CCog +0
 		return nombre;
 	}
 
-	public String getApellido1() {
+	public String getApellido1() { // CC +1 || CCog +0
 		return apellido1;
 	}
 
-	public String apellido2() {
+	public String apellido2() { // CC +1 || CCog +0
 		return apellido2;
 	}
 
-	public String getDire() {
+	public String getDire() { // CC +1 || CCog +0
 		return dire;
 	}
 
-	public double sueldo() {
+	public double sueldo() { // CC+1 || CCog +0
 		double sueldoTransportes = 0;
-		for (Transporte t : transportes) {
+		for (Transporte t : transportes) { // CC +1 || CCog +1
 			double sueldoExtraTransporte = 0.0;
-			switch (t.categoria()) {
+			switch (t.categoria()) { // CC +1 +1 +1 || CCog +1 +1
 				case Mercancias:
 					sueldoExtraTransporte = t.ton() * 2;
 					break;
@@ -63,9 +70,9 @@ public class Conductor {
 					sueldoExtraTransporte = t.ton() * 2 + 50;
 					break;
 				case Personas:
-					if (t.getPersonas() < 10)
+					if (t.getPersonas() < 10) // CC +1 || CCog +1 +1 +1
 						sueldoExtraTransporte = t.horas() * 0.5;
-					else
+					else // CCog +1
 						sueldoExtraTransporte = t.horas();
 					break;
 			}
@@ -74,7 +81,7 @@ public class Conductor {
 		return 700 + sueldoTransportes;
 	}
 
-	public void anhadeTransporte(Transporte t) {
+	public void anhadeTransporte(Transporte t) { // CC +1 || CCog +0
 		transportes.add(t);
 	}
 
