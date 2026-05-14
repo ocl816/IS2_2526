@@ -4,13 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
- WMC = 6 (3 + 2 + 1)
- WMCn = 6 / 3 = 2.0
- CCog = 4 (3 + 1 + 0)
- CCogn = 4 / 3 = 1.33
- CBO = 1 (Clases acopladas: Conductor) 
- DIT = 1 (Hereda de Object)
- NOC = 0 (No tiene subclases)
+ 	WMC = 6 (3 + 2 + 1)
+	WMCn = 6 / 3 = 2.0
+	CCog = 4 (3 + 1 + 0)
+	CCogn = 4 / 3 = 1.33
 */
 public class gestionTransportes {
 

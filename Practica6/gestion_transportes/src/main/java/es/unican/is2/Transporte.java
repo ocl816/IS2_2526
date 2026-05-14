@@ -3,11 +3,8 @@ package es.unican.is2;
 /*
 	WMC = 9 (5 + 1 + 1 + 1 + 1)
  	WMCn = 9 / 5 = 1.8
- 	CCog = 3 (3 + 0 + 0 + 0 + 0)
- 	CCogn = 3 / 5 = 0.6
- 	CBO = 2 (Clases acopladas: CategoriaTransporte, IllegalArgumentException) 
- 	DIT = 1 (Hereda de Object)
- 	NOC = 0 (No tiene subclases)
+ 	CCog = 4 (4 + 0 + 0 + 0 + 0)
+ 	CCogn = 4 / 5 = 0.8
 */
 
 /* Clase que representa un transporte realizado por un conductor */
@@ -27,7 +24,7 @@ public class Transporte {
 	 * representa las toneladas
 	 */ 
 
-	//CC = 5 || CCog = 3
+	//CC = 5 || CCog = 4
 	public Transporte(double horas, CategoriaTransporte cat, int valor) throws IllegalArgumentException { //CC + 1
 		if (horas <= 0 || valor <= 0 || cat == null) { // CC + 1 + 2 || Ccog + 1 + 1
 			throw new IllegalArgumentException();
@@ -36,7 +33,7 @@ public class Transporte {
 		this.cat = cat;
 		if (cat.equals(CategoriaTransporte.Personas)) { //CC + 1 || Ccog + 1
 			this.personas = valor;
-		} else  {
+		} else  { // CCog + 1
 			this.ton = valor;
 		}
 	}
