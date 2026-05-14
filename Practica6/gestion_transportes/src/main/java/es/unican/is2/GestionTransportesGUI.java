@@ -8,8 +8,8 @@ import fundamentos.*;
 CC = 18
 WMC = 18
 WMCn = 18/2 = 9
-CCog = 25
-CCogn = 25/2 = 12.5
+CCog = 34
+CCogn = 34/2 = 17
 */
 
 /**
@@ -81,8 +81,8 @@ public class GestionTransportesGUI {
 
 					Transporte t = null;
 					c = gt.buscaConductor(dni);
-					if (c != null) { // CC +1 || CCOg +1 +1
-						switch (tipo) { // CC +1 +1 +1 || CCOg +1 +1 +1
+					if (c != null) { // CC +1 || CCOg +1 +1 +1
+						switch (tipo) { // CC +1 +1 +1 || CCOg +1 +1 +1 +1
 							case "P":
 								t = new Transporte(horas, CategoriaTransporte.Personas, personas);
 								c.anhadeTransporte(t);
@@ -107,7 +107,7 @@ public class GestionTransportesGUI {
 					lect.esperaYCierra();
 					dni = lect.leeString("DNI");
 					c = gt.buscaConductor(dni);
-					if (c != null) { // CC +1 || CCOg +1 +1
+					if (c != null) { // CC +1 || CCOg +1 +1 +1
 						mensaje("Sueldo", "El sueldo del conductor es: " + c.sueldo());
 					} else { // CCog +1
 						mensaje("ERROR", "No existe un conductor con DNI " + dni);
@@ -117,8 +117,8 @@ public class GestionTransportesGUI {
 				case MEJOR_CONDUCTOR:
 					List<Conductor> resultado = new LinkedList<Conductor>();
 					double maxSueldo = 0.0;
-					for (Conductor conductor : gt.conductores()) { // CC +1 || CCOg +1 +1
-						if (conductor.sueldo() > maxSueldo) { // CC +1 || CCOg +1 +1 +1
+					for (Conductor conductor : gt.conductores()) { // CC +1 || CCOg +1 +1 +1
+						if (conductor.sueldo() > maxSueldo) { // CC +1 || CCOg +1 +1 +1 +1
 							maxSueldo = conductor.sueldo();
 							resultado.clear();
 							resultado.add(conductor);
@@ -127,10 +127,10 @@ public class GestionTransportesGUI {
 						}
 					}
 					String msj = "";
-					if (resultado.size() == 0) { // CC +1 || CCOg +1 +1
+					if (resultado.size() == 0) { // CC +1 || CCOg +1 +1 +1
 						msj = "No hay conductores";
 					} else { // CCog +1
-						for (Conductor conductor : resultado) { // CC +1 || CCOg +1 +1 +1
+						for (Conductor conductor : resultado) { // CC +1 || CCOg +1 +1 +1 +1
 							msj += conductor.getNombre() + " " + conductor.getNombre() + "\n";
 						}
 					}
