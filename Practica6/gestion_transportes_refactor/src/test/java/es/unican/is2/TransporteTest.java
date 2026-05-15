@@ -18,7 +18,7 @@ public class TransporteTest {
         assertThrows(IllegalArgumentException.class, () -> new TransporteMercancias(0, 1));
         assertThrows(IllegalArgumentException.class, () -> new TransporteMercancias(10, 0));
     }
-    
+
     @Test
     public void testConstructorTransporteMercanciasPeligrosas() {
         // Casos validos

@@ -16,7 +16,7 @@ public class TransporteTest {
         assertEquals(CategoriaTransporte.Mercancias, sut.categoria());
         assertEquals(1, sut.ton());
         assertEquals(0, sut.getPersonas());
-        
+
         sut = new Transporte(10, CategoriaTransporte.MercanciasPeligrosas, 1000);
         assertEquals(10, sut.horas());
         assertEquals(CategoriaTransporte.MercanciasPeligrosas, sut.categoria());
