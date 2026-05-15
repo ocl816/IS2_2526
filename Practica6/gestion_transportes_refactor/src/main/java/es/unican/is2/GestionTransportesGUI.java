@@ -63,6 +63,7 @@ public class GestionTransportesGUI {
 
 	/**
 	 * Procesa la peticion de anhadir un nuevo conductor
+	 * 
 	 * @param gt gestion de los transportes
 	 */
 	public static void procesaAnhadeConductor(GestionTransportes gt) {
@@ -85,6 +86,7 @@ public class GestionTransportesGUI {
 
 	/**
 	 * Procesa la peticion de anhadir un nuevo transporte
+	 * 
 	 * @param gt gestion de los transportes
 	 */
 	public static void procesaAnhadeTransporte(GestionTransportes gt) {
@@ -106,15 +108,15 @@ public class GestionTransportesGUI {
 		if (c != null) { // CC +1 || CCOg +1 +1 +1
 			switch (tipo) { // CC +1 +1 +1 || CCOg +1 +1 +1 +1
 				case "P":
-					t = new Transporte(horas, CategoriaTransporte.Personas, personas);
+					t = new TransportePersonas(horas, personas);
 					c.anhadeTransporte(t);
 					break;
 				case "M":
-					t = new Transporte(horas, CategoriaTransporte.Mercancias, toneladas);
+					t = new TransporteMercancias(horas, toneladas);
 					c.anhadeTransporte(t);
 					break;
 				case "MP":
-					t = new Transporte(horas, CategoriaTransporte.MercanciasPeligrosas, toneladas);
+					t = new TransporteMercanciasPeligrosas(horas, toneladas);
 					c.anhadeTransporte(t);
 					break;
 			}
@@ -125,6 +127,7 @@ public class GestionTransportesGUI {
 
 	/**
 	 * Procesa la peticion de mostrar el sueldo de un conductor
+	 * 
 	 * @param gt gestion de los transportes
 	 */
 	public static void procesaSueldoConductor(GestionTransportes gt) {
@@ -142,6 +145,7 @@ public class GestionTransportesGUI {
 
 	/**
 	 * Procesa la peticion de mostrar el mejor conductor
+	 * 
 	 * @param gt gestion de los transportes
 	 */
 	public static void procesaMejorConductor(GestionTransportes gt) {

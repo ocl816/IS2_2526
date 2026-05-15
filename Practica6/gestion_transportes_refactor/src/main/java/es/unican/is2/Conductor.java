@@ -17,8 +17,6 @@ public class Conductor {
 
 	private static final double SUELDO_BASE = 700.0;
 	private static final double PRECIO_HORA = 5.0;
-	private static final double PRECIO_TONELADA = 2.0;
-	private static final double PLUS_PELIGROSIDAD = 50.0;
 
 	private ArrayList<Transporte> transportes = new ArrayList<Transporte>();
 	private String dni;
@@ -55,30 +53,16 @@ public class Conductor {
 		return apellido2;
 	}
 
-	public String getDire() { // CC +1 || CCog +0
+	public String getDireccion() { // CC +1 || CCog +0
 		return dire;
 	}
 
 	public double sueldo() { // CC+1 || CCog +0
 		double sueldoTransportes = 0;
 		for (Transporte t : transportes) { // CC +1 || CCog +1
-			double sueldoExtraTransporte = 0.0;
-			switch (t.categoria()) { // CC +1 +1 +1 || CCog +1 +1
-				case Mercancias:
-					sueldoExtraTransporte = t.ton() * PRECIO_TONELADA;
-					break;
-				case MercanciasPeligrosas:
-					sueldoExtraTransporte = t.ton() * PRECIO_TONELADA + PLUS_PELIGROSIDAD;
-					break;
-				case Personas:
-					if (t.getPersonas() < 10) // CC +1 || CCog +1 +1 +1
-						sueldoExtraTransporte = t.getHoras() * 0.5;
-					else // CCog +1
-						sueldoExtraTransporte = t.getHoras();
-					break;
-			}
-			sueldoTransportes += t.getHoras() * PRECIO_HORA + sueldoExtraTransporte;
+			sueldoTransportes += (t.getHoras() * PRECIO_HORA) + t.getSueldoExtra();
 		}
+
 		return SUELDO_BASE + sueldoTransportes;
 	}
 
