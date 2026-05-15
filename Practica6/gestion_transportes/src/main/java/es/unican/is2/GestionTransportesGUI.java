@@ -5,7 +5,6 @@ import java.util.List;
 import fundamentos.*;
 
 /*
-CC = 18
 WMC = 18
 WMCn = 18/2 = 9
 CCog = 34

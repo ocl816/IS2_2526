@@ -1,10 +1,10 @@
 package es.unican.is2;
 
 /*
-	WMC = 9 (5 + 1 + 1 + 1 + 1)
- 	WMCn = 9 / 5 = 1.8
- 	CCog = 4 (4 + 0 + 0 + 0 + 0)
- 	CCogn = 4 / 5 = 0.8
+	WMC = 4 
+ 	WMCn = 4 / 4 = 1
+ 	CCog = 1
+ 	CCogn = 1 / 4 = 0.25
 */
 
 /* Clase abstracta que representa un transporte realizado por un conductor */
@@ -17,10 +17,8 @@ public abstract class Transporte {
 	 * 
 	 * @param horas Horas que ha durado el transporte
 	 */
-
-	// CC = 5 || CCog = 4
 	public Transporte(double horas) throws IllegalArgumentException { // CC + 1
-		if (horas <= 0)
+		if (horas <= 0) // CC + 1 || CCog + 1
 			throw new IllegalArgumentException();
 		this.horas = horas;
 	}
@@ -30,5 +28,5 @@ public abstract class Transporte {
 		return horas;
 	}
 
-	public abstract double getSueldoExtra();
+	public abstract double getSueldoExtra(); // CC = 1
 }

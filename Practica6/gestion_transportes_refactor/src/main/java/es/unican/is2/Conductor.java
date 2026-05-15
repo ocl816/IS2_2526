@@ -2,10 +2,10 @@ package es.unican.is2;
 
 import java.util.ArrayList;
 /*
-WMC = 18
-WMCn = 18/9 = 2
-CCOg = 9
-CCogn = 9/9 = 1
+WMC = 13
+WMCn = 13/9 = 1.44
+CCOg = 3
+CCogn = 3/9 = 0.33
 
 */
 
